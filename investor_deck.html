@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Vehicle Storage & Enthusiast Club — Investor Deck</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0f0f0f;--bg2:#1a1a1a;--bg3:#242424;--gold:#c9a96e;--gold2:#e8d5a8;--white:#fafafa;--gray:#a0a0a0;--red:#8b2500;--green:#2d8b4e;--blue:#3b82f6;--radius:12px;--shadow:0 4px 24px rgba(0,0,0,.4)}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);line-height:1.6;overflow-x:hidden}
+::selection{background:var(--gold);color:var(--bg)}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--bg3);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--gold)}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(15,15,15,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,169,110,.15);padding:0 2rem;display:flex;align-items:center;height:64px;justify-content:space-between}
+.nav-brand{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold);letter-spacing:2px;text-transform:uppercase}
+.nav-links{display:flex;gap:4px;overflow-x:auto;max-width:70%}
+.nav-links a{color:var(--gray);text-decoration:none;font-size:.7rem;padding:6px 10px;border-radius:6px;white-space:nowrap;transition:.2s;letter-spacing:.5px;text-transform:uppercase;font-weight:500}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);background:rgba(201,169,110,.1)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:2rem;background:linear-gradient(180deg,rgba(15,15,15,0) 0%,var(--bg) 100%),radial-gradient(ellipse at 50% 30%,rgba(201,169,110,.08) 0%,transparent 70%)}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,4rem);color:var(--white);line-height:1.2;margin-bottom:1rem}
+.hero h1 span{color:var(--gold)}
+.hero .sub{font-size:1.1rem;color:var(--gray);max-width:600px;margin-bottom:2rem}
+.hero .stats{display:flex;gap:2rem;flex-wrap:wrap;justify-content:center}
+.stat{text-align:center}
+.stat .num{font-family:'Playfair Display',serif;font-size:2rem;color:var(--gold);display:block}
+.stat .lbl{font-size:.75rem;color:var(--gray);text-transform:uppercase;letter-spacing:1px}
+.scroll-hint{position:absolute;bottom:2rem;color:var(--gold);font-size:.75rem;letter-spacing:2px;text-transform:uppercase;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+/* SECTIONS */
+.container{max-width:1100px;margin:0 auto;padding:0 2rem 6rem}
+.section{margin-bottom:1rem}
+.section-header{cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem;background:var(--bg2);border:1px solid rgba(201,169,110,.12);border-radius:var(--radius);transition:.3s;user-select:none}
+.section-header:hover{border-color:var(--gold);background:rgba(201,169,110,.05)}
+.section-header.open{border-radius:var(--radius) var(--radius) 0 0;border-color:var(--gold);background:rgba(201,169,110,.08)}
+.section-header h2{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--white);display:flex;align-items:center;gap:.75rem}
+.section-header h2 .num{color:var(--gold);font-size:.85rem;font-family:'Inter',sans-serif;font-weight:600;background:rgba(201,169,110,.15);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.section-header .icon{color:var(--gold);font-size:1.2rem;transition:.3s}
+.section-header.open .icon{transform:rotate(180deg)}
+.section-body{display:none;padding:1.5rem;background:var(--bg2);border:1px solid rgba(201,169,110,.12);border-top:none;border-radius:0 0 var(--radius) var(--radius);animation:fadeIn .3s}
+.section-body.show{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+
+/* SUB SECTIONS */
+.sub-section{margin:1.5rem 0}
+.sub-section h3{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--gold2);margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:1px solid rgba(201,169,110,.1)}
+.sub-section h4{font-size:.85rem;color:var(--gold);margin:1rem 0 .5rem;text-transform:uppercase;letter-spacing:1px}
+
+/* TABLES */
+table{width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.82rem}
+th{text-align:left;padding:.6rem .75rem;background:rgba(201,169,110,.1);color:var(--gold);font-weight:600;text-transform:uppercase;letter-spacing:.5px;font-size:.7rem;border-bottom:2px solid rgba(201,169,110,.2)}
+td{padding:.55rem .75rem;border-bottom:1px solid rgba(255,255,255,.05);color:var(--gray)}
+tr:hover td{background:rgba(201,169,110,.03);color:var(--white)}
+td:first-child{color:var(--white);font-weight:500}
+td strong{color:var(--gold)}
+
+/* CALLOUTS */
+.callout{padding:1rem 1.25rem;border-radius:8px;margin:.75rem 0;font-size:.85rem;line-height:1.5}
+.callout.important{background:rgba(201,169,110,.08);border-left:3px solid var(--gold);color:var(--gold2)}
+.callout.tip{background:rgba(45,139,78,.08);border-left:3px solid var(--green);color:#7dcea0}
+.callout.caution{background:rgba(139,37,0,.08);border-left:3px solid var(--red);color:#e8744f}
+.callout .label{font-weight:700;text-transform:uppercase;font-size:.7rem;letter-spacing:1px;margin-bottom:.25rem;display:block}
+
+/* PRE/CODE */
+pre{background:var(--bg);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:1rem;overflow-x:auto;font-size:.75rem;color:var(--gray);margin:.75rem 0;line-height:1.8}
+
+/* BADGES */
+.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+.badge.green{background:rgba(45,139,78,.15);color:#7dcea0}
+.badge.red{background:rgba(139,37,0,.15);color:#e8744f}
+.badge.gold{background:rgba(201,169,110,.15);color:var(--gold)}
+.badge.blue{background:rgba(59,130,246,.15);color:var(--blue)}
+
+/* PROGRESS BAR */
+.progress-wrap{margin:1rem 0}
+.progress-bar{height:6px;background:var(--bg);border-radius:3px;overflow:hidden}
+.progress-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--gold),var(--gold2));transition:width 1s ease}
+
+/* TABS */
+.tabs{display:flex;gap:4px;margin-bottom:1rem;border-bottom:1px solid rgba(255,255,255,.06);padding-bottom:4px}
+.tab{padding:8px 16px;font-size:.78rem;color:var(--gray);cursor:pointer;border-radius:6px 6px 0 0;transition:.2s;border:none;background:none;font-family:inherit}
+.tab:hover,.tab.active{color:var(--gold);background:rgba(201,169,110,.08)}
+.tab-content{display:none}.tab-content.active{display:block}
+
+/* GRID */
+.grid{display:grid;gap:1rem;margin:.75rem 0}
+.grid-2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.card{background:var(--bg);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:1rem}
+.card:hover{border-color:rgba(201,169,110,.2)}
+.card .card-title{font-size:.75rem;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-bottom:.25rem}
+.card .card-value{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--white)}
+.card .card-sub{font-size:.75rem;color:var(--gray);margin-top:.25rem}
+
+/* CHART BARS */
+.bar-chart{display:flex;flex-direction:column;gap:8px;margin:.75rem 0}
+.bar-row{display:flex;align-items:center;gap:12px}
+.bar-label{width:80px;font-size:.75rem;color:var(--gray);text-align:right;flex-shrink:0}
+.bar-track{flex:1;height:24px;background:var(--bg);border-radius:4px;overflow:hidden;position:relative}
+.bar-fill{height:100%;border-radius:4px;display:flex;align-items:center;padding:0 8px;font-size:.7rem;font-weight:600;color:var(--bg);transition:width 1.5s ease}
+.bar-fill.gold{background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.bar-fill.green{background:linear-gradient(90deg,#2d8b4e,#4ade80)}
+.bar-fill.blue{background:linear-gradient(90deg,#3b82f6,#60a5fa)}
+.bar-fill.red{background:linear-gradient(90deg,#8b2500,#dc2626)}
+
+/* FOOTER */
+.footer{text-align:center;padding:3rem 2rem;color:var(--gray);font-size:.75rem;border-top:1px solid rgba(255,255,255,.05)}
+.footer .brand{font-family:'Playfair Display',serif;color:var(--gold);font-size:1rem;letter-spacing:2px;margin-bottom:.5rem}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.nav-links{display:none}
+.hero h1{font-size:2rem}
+.hero .stats{gap:1rem}
+.section-header h2{font-size:1rem}
+.grid-2,.grid-3{grid-template-columns:1fr}
+}
+p{color:var(--gray);font-size:.85rem;margin:.5rem 0;line-height:1.7}
+ul,ol{color:var(--gray);font-size:.85rem;margin:.5rem 0 .5rem 1.25rem}
+li{margin:.25rem 0}
+</style>
+</head>
+<body>
+<nav class="nav">
+<div class="nav-brand">Investor Deck</div>
+<div class="nav-links" id="navLinks"></div>
+</nav>
+
+<section class="hero" id="top">
+<h1>Premium Vehicle Storage<br>&amp; <span>Enthusiast Club</span></h1>
+<p class="sub">A membership-based automotive country club in Seattle's SODO district — where high-end vehicle storage meets community, craftsmanship, and exclusive parts access.</p>
+<div class="stats">
+<div class="stat"><span class="num">$90K–$120K</span><span class="lbl">Monthly Revenue Target</span></div>
+<div class="stat"><span class="num">~21,350 SF</span><span class="lbl">Usable Space</span></div>
+<div class="stat"><span class="num">28–32</span><span class="lbl">Vehicle Capacity</span></div>
+<div class="stat"><span class="num">$0</span><span class="lbl">Enrollment Fee</span></div>
+</div>
+<div class="scroll-hint" style="margin-top:3rem">↓ Scroll to explore</div>
+</section>
+
+<div class="container" id="content"></div>
+
+<footer class="footer">
+<div class="brand">PREMIUM VEHICLE STORAGE & ENTHUSIAST CLUB</div>
+<p>2326 Airport Way S, Seattle, WA 98134 &middot; Analysis prepared March 2026</p>
+<p style="margin-top:.5rem">Data: The Shop Club, One Drivers Club, Hagerty Garage+Social, US Census, Capgemini, Hagerty Market Trends</p>
+</footer>
+
+<script>
+const sections = [
+{id:"why",num:"01",title:"Why Now · Why Seattle · Why Us",content:`
+<div class="grid grid-2">
+<div class="card"><div class="card-title">Why Now?</div><p>Collector car market hit <strong>$4.8B (+10% YoY)</strong>. Seattle's HNWI population grew <strong>7.3%</strong> in 2024. EV exotics (Taycan, Rimac, Lucid) creating new storage demand no competitor addresses.</p></div>
+<div class="card"><div class="card-title">Why Seattle?</div><p><strong>106K+ households earning $200K+</strong>. Amazon/Microsoft/Google/Boeing executive density unmatched outside SF/NYC. Only <strong>2 clubs within 10 miles</strong> — massive under-penetration.</p></div>
+<div class="card"><div class="card-title">Why This Location?</div><p>SODO industrial district = affordable NNN lease ($14–$19/SF) while being <strong>10 min from downtown</strong>. EMWraps (owner's company) is <strong>0.3 miles away</strong> on the same street.</p></div>
+<div class="card"><div class="card-title">Why This Team?</div><p>Owner operates <strong>EMWraps</strong> (established car services). Investor brings <strong>gun range</strong> (lifestyle cross-sell). Combined existing customer base of affluent car enthusiasts.</p></div>
+</div>
+<div class="callout important"><span class="label">vs. The Shop Club</span>They charge $500–$5K enrollment. No parts. No fab lab. No EMWraps. No corporate tier. No EV charging. No content program. <strong>We beat them on 15+ features at competitive pricing.</strong></div>
+`},
+
+{id:"benchmark",num:"02",title:"Benchmark — The Shop Club",content:`
+<p>The Shop Club operates in <strong>Seattle, Dallas, and Houston</strong> as the premier "country club for car & motorcycle enthusiasts." Their Seattle location at <strong>2233 6th Ave S</strong> (0.5 miles from our property) is our primary benchmark.</p>
+<div class="sub-section"><h3>Their Membership Tiers</h3>
+<table><thead><tr><th>Tier</th><th>Enrollment</th><th>Monthly</th><th>Storage</th><th>Key Perks</th></tr></thead><tbody>
+<tr><td>Social</td><td>$500</td><td>$150/mo</td><td>❌</td><td>Events, cigar lounge, driving sim</td></tr>
+<tr><td>Premium</td><td>$1,000</td><td>$200/mo</td><td>$350/vehicle</td><td>Full access, lifts & tools, wash bay</td></tr>
+<tr><td>Founder's</td><td>$5,000</td><td>$350/mo</td><td>$350/vehicle + locker</td><td>All Premium + exclusive events</td></tr>
+</tbody></table></div>
+<div class="sub-section"><h3>Key Amenities</h3>
+<ul><li>24/7 security & surveillance</li><li>Climate-controlled storage</li><li>Member & cigar lounge</li><li>Driving & golf simulators</li><li>Wash bay & detailing</li><li>Lifts, tools, service bays</li><li>Conference rooms & co-working</li><li>Members-only events</li><li>Concierge services</li></ul></div>
+`},
+
+{id:"competitors",num:"03",title:"Competitor Analysis (20mi from 98134)",content:`
+<table><thead><tr><th>Competitor</th><th>Location</th><th>Dist.</th><th>Storage $/mo</th><th>Membership</th><th>Differentiator</th></tr></thead><tbody>
+<tr><td>The Shop Club</td><td>2233 6th Ave S</td><td><strong>0.5 mi</strong></td><td>$350–$400</td><td>$150–$350/mo + enrollment</td><td>Full club, cigar lounge, simulators</td></tr>
+<tr><td>Apex Hero Garage</td><td>Ballard</td><td>~7 mi</td><td>$370</td><td>None</td><td>Battery tender included, no frills</td></tr>
+<tr><td>The High Drive</td><td>Ballard</td><td>~7 mi</td><td>$550</td><td>None</td><td>DIY workspace + storage combo</td></tr>
+<tr><td>One Drivers Club</td><td>Redmond</td><td>~15 mi</td><td>$600–$800</td><td>Social avail.</td><td>49,500 SF, 200+ vehicles, wine cellar</td></tr>
+<tr><td>Hagerty Garage+Social</td><td>Redmond</td><td>~13 mi</td><td>$600+</td><td>Social $125/mo</td><td>160+ cars, Hagerty brand, golf sim</td></tr>
+<tr><td>Collector Car Vault</td><td>Seattle area</td><td>~5–10 mi</td><td>~$400</td><td>N/A</td><td>Preservation-focused</td></tr>
+<tr><td>GarageTown</td><td>Federal Way</td><td>~20 mi</td><td>Condo-style</td><td>N/A</td><td>Own your garage unit, gated</td></tr>
+</tbody></table>
+<div class="callout caution"><span class="label">Market Gap</span><strong>No competitor offers integrated high-end aftermarket parts purchasing with member discounts.</strong> No fabrication access. No EV charging. No content creator program. No owner ecosystem.</div>
+`},
+
+{id:"property",num:"04",title:"Property & Space — 21,350 SF",content:`
+<p><strong>2326 Airport Way S, Seattle, WA 98134</strong> — 1.92 acres with warehouse + offices.</p>
+<div class="grid grid-3">
+<div class="card"><div class="card-title">Vehicle Storage</div><div class="card-value">~9,500 SF</div><div class="card-sub">28–32 dedicated spots (44%)</div></div>
+<div class="card"><div class="card-title">Workshop / Fab Lab</div><div class="card-value">~2,880 SF</div><div class="card-sub">Lifts, 3D printers, plasma, welders (14%)</div></div>
+<div class="card"><div class="card-title">Car Wash</div><div class="card-value">~1,200 SF</div><div class="card-sub">2 self-service bays (6%)</div></div>
+<div class="card"><div class="card-title">Members Lounge</div><div class="card-value">~2,200 SF</div><div class="card-sub">Premium lounge, bar, seating (10%)</div></div>
+<div class="card"><div class="card-title">Showcase + Parts</div><div class="card-value">~1,500 SF</div><div class="card-sub">Featured vehicle display (7%)</div></div>
+<div class="card"><div class="card-title">Admin / Conference</div><div class="card-value">~2,725 SF</div><div class="card-sub">2nd floor offices, co-working (13%)</div></div>
+</div>
+<pre>
+┌──────────────────────────────────────────────────────────────┐
+│                    WAREHOUSE (13,580 SF)                      │
+│  ┌─────────────────────────────────┐ ┌────────────────────┐  │
+│  │   VEHICLE STORAGE (PRIMARY)     │ │  WORKSHOP / FAB    │  │
+│  │        ~9,500 SF                │ │  LAB  ~2,880 SF    │  │
+│  │    28–32 standard spaces        │ │   2–3 lifts, tools │  │
+│  │    (300 SF/car avg incl. aisle) │ │   3D printers,     │  │
+│  │                                 │ │   plasma, welders   │  │
+│  └─────────────────────────────────┘ └────────────────────┘  │
+│  ┌──────────────────────────────────────────────────────────┐ │
+│  │              SELF-SERVICE WASH  ~1,200 SF                │ │
+│  └──────────────────────────────────────────────────────────┘ │
+└──────────────────────────────────────────────────────────────┘
+</pre>
+`},
+
+{id:"services",num:"05",title:"Services & Pricing Strategy",content:`
+<div class="sub-section"><h3>Membership Tiers — No Enrollment Fees</h3>
+<table><thead><tr><th>Tier</th><th>Monthly</th><th>Storage Add-on</th><th>Target Member</th></tr></thead><tbody>
+<tr><td><strong>Social</strong></td><td>$150/mo</td><td>❌</td><td>Enthusiasts wanting community & events</td></tr>
+<tr><td><strong>Premium</strong></td><td>$250/mo</td><td>$650/vehicle</td><td>Active owners needing storage + access</td></tr>
+<tr><td><strong>Founder's Circle</strong></td><td>$450/mo</td><td>$650/vehicle + locker</td><td>Collectors, multi-vehicle owners</td></tr>
+</tbody></table></div>
+<div class="sub-section"><h3>Service Menu</h3>
+<table><thead><tr><th>Service</th><th>Pricing</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Vehicle Storage</td><td>$650/mo</td><td>Climate-monitored, 24/7 security, battery tender</td></tr>
+<tr><td>XL/Oversized Storage</td><td>$800/mo</td><td>Trucks, SUVs, extended wheelbase</td></tr>
+<tr><td>Motorcycle Storage</td><td>$200/mo</td><td>Dedicated area with kickstand pads</td></tr>
+<tr><td>Lift Rental</td><td>$75/hr · $250/day</td><td>2-post and 4-post lifts</td></tr>
+<tr><td>3D Printer</td><td>$50/hr</td><td>Resin & filament for custom parts</td></tr>
+<tr><td>Plasma / Welder</td><td>$75/hr</td><td>Supervised access, safety briefing required</td></tr>
+<tr><td>Car Wraps (EMWraps)</td><td>15% member discount</td><td>Owner-operated — 0.3 mi away</td></tr>
+<tr><td>Photo Studio</td><td>$150/session</td><td>Pro lighting, social-media ready</td></tr>
+<tr><td>EV Charging</td><td>$5–$15/hr</td><td>Level 2 + DC fast</td></tr>
+<tr><td>Consignment Sales</td><td>3–5% commission</td><td>Member vehicle brokerage</td></tr>
+</tbody></table></div>
+<div class="sub-section"><h3>Parts Sales — The Differentiator</h3>
+<div class="callout caution"><span class="label">First-Mover Advantage</span><strong>No competitor in Seattle/PNW is an authorized dealer for ANY of these 6 brands.</strong></div>
+<table><thead><tr><th>Brand</th><th>Focus</th><th>PNW Gap</th><th>Exclusivity</th></tr></thead><tbody>
+<tr><td><strong>TechArt</strong></td><td>Porsche tuning</td><td>✅ No PNW dealer</td><td><span class="badge gold">🔥 HIGH</span></td></tr>
+<tr><td><strong>Akrapovič</strong></td><td>Exhaust systems</td><td>✅ Limited PNW</td><td><span class="badge green">GOOD</span></td></tr>
+<tr><td><strong>Novitec</strong></td><td>Ferrari/Lamborghini</td><td>✅ No PNW dealer</td><td><span class="badge blue">MODERATE</span></td></tr>
+<tr><td><strong>1016 Industries</strong></td><td>Carbon fiber</td><td>✅ No PNW dealer</td><td><span class="badge blue">MODERATE</span></td></tr>
+<tr><td><strong>Brabus</strong></td><td>Mercedes-AMG</td><td>✅ No PNW dealer</td><td><span class="badge gold">🔥 HIGH</span></td></tr>
+<tr><td><strong>Mansory</strong></td><td>Multi-brand luxury</td><td>✅ <strong>Zero West Coast</strong></td><td><span class="badge red">🔥🔥 VERY HIGH</span></td></tr>
+</tbody></table>
+<div class="callout important"><span class="label">Margin Structure</span>Wholesale markup: <strong>30–60%</strong>. With 10% member discount off MSRP, business retains <strong>20–50% gross margin</strong>. A single Brabus engine kit (~$30K) at 25% margin = <strong>$7,500 profit</strong>.</div></div>
+<div class="sub-section"><h3>Owner Ecosystem — Cross-Promotion</h3>
+<table><thead><tr><th>Partner</th><th>Owner</th><th>Location</th><th>Member Benefit</th><th>Club Revenue</th></tr></thead><tbody>
+<tr><td><strong>EMWraps</strong></td><td>Club Owner</td><td><strong>1900 Airport Way S</strong> (~0.3 mi!)</td><td>15% off wraps, PPF, ceramic</td><td>15% commission</td></tr>
+<tr><td><strong>Gun Range</strong></td><td>Investor</td><td>TBD</td><td>15–20% off membership, VIP lanes</td><td>$25/referral + 50/50 events</td></tr>
+</tbody></table>
+<div class="callout tip"><span class="label">Executive Package</span>Co-branded club + range: Executive Social <strong>$225/mo</strong> (vs $280), Executive Premium <strong>$1,050/mo</strong> (vs $1,250). Bundling creates stickiness.</div></div>
+<div class="sub-section"><h3>Corporate Memberships</h3>
+<table><thead><tr><th>Tier</th><th>Monthly</th><th>Includes</th><th>Target</th></tr></thead><tbody>
+<tr><td>Corporate Social</td><td>$500/mo</td><td>5 named employees, event access, conference room</td><td>Tech companies, law firms</td></tr>
+<tr><td>Corporate Premium</td><td>$1,200/mo</td><td>10 employees, 2 storage spots, full access</td><td>Executive teams, C-suite perks</td></tr>
+<tr><td>Corporate Event Buyout</td><td>$3K–$5K/event</td><td>Full venue rental, catering coordination</td><td>Product launches, team events</td></tr>
+</tbody></table></div>
+`},
+
+{id:"financials",num:"06",title:"Financial Projections",content:`
+<div class="sub-section"><h3>Startup Investment</h3>
+<div class="grid grid-3">
+<div class="card"><div class="card-title">Total Raise</div><div class="card-value" style="color:var(--gold)">~$750K</div><div class="card-sub">Range: $543K–$930K</div></div>
+<div class="card"><div class="card-title">Breakeven</div><div class="card-value">Mo. 11–12</div><div class="card-sub">~$60K–$65K monthly revenue</div></div>
+<div class="card"><div class="card-title">Year 3 ROI</div><div class="card-value" style="color:var(--green)">25–32%</div><div class="card-sub">$240K net income</div></div>
+</div>
+<table><thead><tr><th>Category</th><th>Low</th><th>High</th></tr></thead><tbody>
+<tr><td>Lease deposit & pre-opening rent</td><td>$60K</td><td>$100K</td></tr>
+<tr><td>Build-out & renovation</td><td>$180K</td><td>$320K</td></tr>
+<tr><td>Equipment & fixtures</td><td>$120K</td><td>$210K</td></tr>
+<tr><td>Security & FM-200 fire suppression</td><td>$65K</td><td>$110K</td></tr>
+<tr><td>EV charging infrastructure</td><td>$65K</td><td>$128K</td></tr>
+<tr><td>Technology, branding, professional fees</td><td>$63K</td><td>$115K</td></tr>
+<tr><td>Working capital (3 months)</td><td>$55K</td><td>$75K</td></tr>
+<tr><td><strong>TOTAL</strong></td><td><strong>$608K</strong></td><td><strong>$1,058K</strong></td></tr>
+</tbody></table>
+<p>Recommended: <strong>$250K owner equity + $350K investor equity + $150K equipment financing</strong></p></div>
+
+<div class="sub-section"><h3>Revenue at Full Capacity (~$80K/mo)</h3>
+<div class="bar-chart">
+<div class="bar-row"><div class="bar-label">Storage</div><div class="bar-track"><div class="bar-fill gold" style="width:24%" data-width="24">$19,500</div></div></div>
+<div class="bar-row"><div class="bar-label">Parts</div><div class="bar-track"><div class="bar-fill green" style="width:19%" data-width="19">$15,000</div></div></div>
+<div class="bar-row"><div class="bar-label">Events/Other</div><div class="bar-track"><div class="bar-fill blue" style="width:16%" data-width="16">$12,750</div></div></div>
+<div class="bar-row"><div class="bar-label">Memberships</div><div class="bar-track"><div class="bar-fill gold" style="width:14%" data-width="14">$11,250</div></div></div>
+<div class="bar-row"><div class="bar-label">Workshop</div><div class="bar-track"><div class="bar-fill green" style="width:8%" data-width="8">$6,500</div></div></div>
+<div class="bar-row"><div class="bar-label">Wraps/PPF</div><div class="bar-track"><div class="bar-fill blue" style="width:5%" data-width="5">$4,000</div></div></div>
+<div class="bar-row"><div class="bar-label">Corp.</div><div class="bar-track"><div class="bar-fill gold" style="width:3%" data-width="3">$2,100</div></div></div>
+<div class="bar-row"><div class="bar-label">EV/Other</div><div class="bar-track"><div class="bar-fill green" style="width:4%" data-width="4">$3,600</div></div></div>
+</div></div>
+
+<div class="sub-section"><h3>3-Year Outlook</h3>
+<table><thead><tr><th>Metric</th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr></thead><tbody>
+<tr><td>Revenue</td><td>$497K</td><td>$860K</td><td><strong>$1,050K</strong></td></tr>
+<tr><td>OPEX</td><td>$727K</td><td>$780K</td><td>$810K</td></tr>
+<tr><td>Net Income</td><td style="color:#e8744f">-$230K</td><td style="color:#7dcea0">+$80K</td><td style="color:#7dcea0"><strong>+$240K</strong></td></tr>
+<tr><td>Storage Occupancy</td><td>55%</td><td>90%</td><td>95%+</td></tr>
+<tr><td>Members (year-end)</td><td>65</td><td>80</td><td>90</td></tr>
+</tbody></table></div>
+
+<div class="sub-section"><h3>Key Investor Metrics</h3>
+<div class="grid grid-2">
+<div class="card"><div class="card-title">Year 2 ROI</div><div class="card-value">8.6–10.7%</div><div class="card-sub">$80K on $750K–$930K invested</div></div>
+<div class="card"><div class="card-title">Year 3 ROI</div><div class="card-value" style="color:#7dcea0">25.8–32%</div><div class="card-sub">$240K on $750K–$930K invested</div></div>
+<div class="card"><div class="card-title">Payback Period</div><div class="card-value">~5–6 years</div><div class="card-sub">Cash-on-cash basis</div></div>
+<div class="card"><div class="card-title">Recurring Revenue</div><div class="card-value">~75%</div><div class="card-sub">Storage + memberships</div></div>
+</div></div>
+
+<div class="sub-section"><h3>Sensitivity Analysis</h3>
+<table><thead><tr><th>Scenario</th><th>Fill Rate</th><th>Avg Rev/Mo (Y2)</th><th>Year 2 Net</th><th>Breakeven</th></tr></thead><tbody>
+<tr><td><span class="badge green">Optimistic</span></td><td>95% by M8</td><td>$82K</td><td style="color:#7dcea0">+$180K</td><td>Month 8</td></tr>
+<tr><td><span class="badge gold">Base</span></td><td>90% by M12</td><td>$72K</td><td style="color:#7dcea0">+$80K</td><td>Month 11</td></tr>
+<tr><td><span class="badge red">Conservative</span></td><td>75% by M14</td><td>$58K</td><td style="color:#e8744f">-$15K</td><td>Month 15</td></tr>
+</tbody></table></div>
+`}
+];
+
+const sections2 = [
+{id:"market",num:"07",title:"Market Opportunity — Seattle Demographics",content:`
+<div class="grid grid-3">
+<div class="card"><div class="card-title">HH Earning $200K+</div><div class="card-value">106,000+</div><div class="card-sub">29.2% of Seattle households</div></div>
+<div class="card"><div class="card-title">Median HH Income</div><div class="card-value">$120,608</div><div class="card-sub">Well above national average</div></div>
+<div class="card"><div class="card-title">Luxury Car Market</div><div class="card-value">$162.3B</div><div class="card-sub">6.7% CAGR 2024–2029</div></div>
+</div>
+<table><thead><tr><th>Metric</th><th>Value</th><th>Source</th></tr></thead><tbody>
+<tr><td>Seattle population</td><td>816,600 (2025)</td><td>US Census</td></tr>
+<tr><td>Metro area population</td><td>3,581,000</td><td>Census estimates</td></tr>
+<tr><td>WA median net worth</td><td>$398,881 (2nd in US)</td><td>SmartAsset</td></tr>
+<tr><td>HNWI population growth (N. America)</td><td>+7.3% (2024)</td><td>Capgemini</td></tr>
+<tr><td>Collector car market</td><td>$4.8B (+10% YoY)</td><td>Hagerty</td></tr>
+</tbody></table>
+<div class="callout tip"><span class="label">Penetration</span>With 106,000+ affluent households, even capturing <strong>0.06%</strong> (65 members) fills the club completely.</div>
+`},
+
+{id:"legal",num:"08",title:"Legal Structure & Entity",content:`
+<div class="sub-section"><h3>Entity: Washington State LLC (Manager-Managed)</h3>
+<table><thead><tr><th>Item</th><th>Details</th></tr></thead><tbody>
+<tr><td>Entity type</td><td>Multi-member LLC</td></tr>
+<tr><td>Management</td><td>Manager-managed (operator runs day-to-day)</td></tr>
+<tr><td>Formation cost</td><td>~$825–$2,880</td></tr>
+<tr><td>Annual compliance</td><td>$70 annual report + B&O tax (1.5% gross)</td></tr>
+<tr><td>Tax election</td><td>S-Corp at ~$100K+ net income (saves ~$11K/yr)</td></tr>
+</tbody></table></div>
+<div class="sub-section"><h3>Ownership Structure</h3>
+<table><thead><tr><th>Class</th><th>Holder</th><th>Contribution</th><th>Ownership</th><th>Rights</th></tr></thead><tbody>
+<tr><td><strong>Class A — Operator</strong></td><td>Club Owner</td><td>$250K + EMWraps + sweat equity</td><td>55–60%</td><td>Full voting, day-to-day</td></tr>
+<tr><td><strong>Class B — Investor</strong></td><td>Investor(s)</td><td>$350K–$500K cash</td><td>40–45%</td><td>Major decisions, 8% preferred</td></tr>
+</tbody></table></div>
+<div class="sub-section"><h3>Insurance Stack</h3>
+<table><thead><tr><th>Policy</th><th>Coverage</th><th>Annual</th></tr></thead><tbody>
+<tr><td>Garage Keeper's Liability</td><td>$1M–$3M (Direct Primary)</td><td>$5K–$15K</td></tr>
+<tr><td>General Liability</td><td>$1M/$2M</td><td>$2K–$5K</td></tr>
+<tr><td>Property + Umbrella + WC + Other</td><td>Various</td><td>$10K–$23K</td></tr>
+<tr><td><strong>Total Insurance</strong></td><td></td><td><strong>$17K–$43K/yr</strong></td></tr>
+</tbody></table></div>
+`},
+
+{id:"differentiators",num:"09",title:"Key Differentiators vs. The Shop Club",content:`
+<table><thead><tr><th>Feature</th><th>The Shop Club</th><th>Our Club</th></tr></thead><tbody>
+<tr><td>Storage Price</td><td>$350–$400/mo</td><td>$650/mo (premium)</td></tr>
+<tr><td>Enrollment Fee</td><td>$500–$5,000</td><td><strong style="color:#7dcea0">$0</strong></td></tr>
+<tr><td>High-End Parts Sales</td><td>❌</td><td><strong style="color:#7dcea0">✅ Brabus, TechArt, Novitec + 10% off</strong></td></tr>
+<tr><td>Workshop / Fab Lab</td><td>⚠️ Basic lifts</td><td><strong style="color:#7dcea0">✅ Lifts + 3D printers, plasma, welders</strong></td></tr>
+<tr><td>Vehicle Wraps</td><td>❌</td><td><strong style="color:#7dcea0">✅ EMWraps — owner-operated</strong></td></tr>
+<tr><td>Corporate Memberships</td><td>❌</td><td><strong style="color:#7dcea0">✅ Tiered corporate packages</strong></td></tr>
+<tr><td>Owner Lifestyle Network</td><td>❌</td><td><strong style="color:#7dcea0">✅ Gun range, wraps, luxury partners</strong></td></tr>
+<tr><td>EV Charging</td><td>❌</td><td><strong style="color:#7dcea0">✅ Level 2 + DC fast</strong></td></tr>
+<tr><td>Content Creator Program</td><td>❌</td><td><strong style="color:#7dcea0">✅ Photo studio + influencer partners</strong></td></tr>
+<tr><td>Consignment Sales</td><td>❌</td><td><strong style="color:#7dcea0">✅ 3–5% commission</strong></td></tr>
+<tr><td>Fire Suppression</td><td>Unknown</td><td><strong style="color:#7dcea0">✅ FM-200 clean agent</strong></td></tr>
+<tr><td>Insurance Partner</td><td>❌</td><td><strong style="color:#7dcea0">✅ Hagerty agreed-value</strong></td></tr>
+<tr><td>AI Robotics</td><td>❌</td><td><span class="badge gold">🔄 Tesla Optimus planned</span></td></tr>
+</tbody></table>
+`},
+
+{id:"optimus",num:"10",title:"Future Roadmap — Tesla Optimus",content:`
+<p>When Tesla Optimus becomes commercially available, the club will deploy humanoid robots on-site:</p>
+<table><thead><tr><th>Role</th><th>Description</th></tr></thead><tbody>
+<tr><td>Member Concierge</td><td>Greet members, answer FAQs, facility tours</td></tr>
+<tr><td>Vehicle Logistics</td><td>Vehicle positioning, battery tender hookups, cover placement</td></tr>
+<tr><td>Light Maintenance</td><td>Tire pressure checks, fluid top-offs</td></tr>
+<tr><td>Brand Showpiece</td><td>Massive conversation starter — signals tech-forward luxury</td></tr>
+</tbody></table>
+<div class="callout important"><span class="label">Investor Signal</span>Tesla Optimus positions the club at the intersection of automotive culture and cutting-edge robotics. <strong>No competitor in the car club space is planning for humanoid robot integration.</strong></div>
+`},
+
+{id:"moats",num:"11",title:"Competitive Moats",content:`
+<table><thead><tr><th>Moat</th><th>Strategy</th><th>Impact</th></tr></thead><tbody>
+<tr><td><strong>Exclusive Brand Dealership</strong></td><td>Sole-authorized Brabus/TechArt in Seattle</td><td>Locks out competitors from parts revenue</td></tr>
+<tr><td><strong>Long-Term Lease</strong></td><td>10+ year lease at current SODO rates</td><td>Cost advantage grows every year</td></tr>
+<tr><td><strong>Waitlist / Scarcity</strong></td><td>At 80% occupancy, public waitlist</td><td>Drives urgency, justifies price increases</td></tr>
+<tr><td><strong>Referral Program</strong></td><td>1 free month per referral</td><td>Word-of-mouth from Ferrari owners > any ad</td></tr>
+<tr><td><strong>Owner Ecosystem</strong></td><td>EMWraps + gun range + partners</td><td>Cannot be replicated without same ownership</td></tr>
+<tr><td><strong>Content Flywheel</strong></td><td>Free memberships for car YouTubers</td><td>Organic reach: 1 video = thousands of impressions</td></tr>
+</tbody></table>
+`},
+
+{id:"security",num:"12",title:"Security & Facility Hardening",content:`
+<div class="callout caution"><span class="label">Critical</span>Standard water sprinklers can cause <strong>more damage than fire</strong> to exotic cars. FM-200/Novec 1230 clean agent systems are a <strong>must-have</strong> for vehicles valued at $200K+.</div>
+<table><thead><tr><th>System</th><th>Specification</th><th>Why It Matters</th></tr></thead><tbody>
+<tr><td><strong>Fire Suppression</strong></td><td>FM-200 or Novec 1230 clean agent</td><td>No water damage to $500K+ cars</td></tr>
+<tr><td><strong>Access Control</strong></td><td>Biometric + keycard dual-auth</td><td>Military-grade; prevents unauthorized entry</td></tr>
+<tr><td><strong>Surveillance</strong></td><td>4K cameras, 90-day retention</td><td>Full coverage, legally admissible</td></tr>
+<tr><td><strong>Backup Generator</strong></td><td>Auto-transfer diesel/natural gas</td><td>Security + climate never go offline</td></tr>
+<tr><td><strong>Climate Monitoring</strong></td><td>IoT sensors (temp, humidity, air)</td><td>Alerts if conditions threaten vehicles</td></tr>
+<tr><td><strong>Insurance Partner</strong></td><td>Hagerty agreed-value policies</td><td>Discounted collector car insurance</td></tr>
+</tbody></table>
+`},
+
+{id:"risks",num:"13",title:"Risk Factors & Seasonality",content:`
+<div class="sub-section"><h3>Risk Matrix</h3>
+<table><thead><tr><th>Risk</th><th>Prob.</th><th>Severity</th><th>Mitigation</th></tr></thead><tbody>
+<tr><td>Proximity to Shop Club</td><td><span class="badge red">High</span></td><td><span class="badge gold">Med</span></td><td>15+ differentiators, different psychographic</td></tr>
+<tr><td>Build-out cost</td><td><span class="badge red">High</span></td><td><span class="badge red">High</span></td><td>Phased build; Phase 1 enables Day 1 revenue</td></tr>
+<tr><td>Permit delays</td><td><span class="badge gold">Med</span></td><td><span class="badge gold">Med</span></td><td>File pre-lease; Seattle streamlined rules 2025</td></tr>
+<tr><td>Vehicle damage liability</td><td><span class="badge green">Low</span></td><td><span class="badge red">V.High</span></td><td>FM-200, biometric, garage keeper's $3M, waivers</td></tr>
+<tr><td>Fab lab safety</td><td><span class="badge green">Low</span></td><td><span class="badge red">High</span></td><td>Supervised access, safety briefings, insurance rider</td></tr>
+<tr><td>Economic downturn</td><td><span class="badge gold">Med</span></td><td><span class="badge gold">Med</span></td><td>75% recurring revenue; 6-mo minimums; 12 streams</td></tr>
+</tbody></table></div>
+<div class="sub-section"><h3>Seasonality</h3>
+<table><thead><tr><th>Season</th><th>Impact</th><th>Strategy</th></tr></thead><tbody>
+<tr><td>🌸 Spring</td><td><span class="badge green">Peak sign-ups</span></td><td>Track day launches, aggressive marketing</td></tr>
+<tr><td>☀️ Summer</td><td><span class="badge green">High engagement</span></td><td>Group drives, content creator events</td></tr>
+<tr><td>🍂 Fall</td><td><span class="badge gold">Steady</span></td><td>"Winter prep" packages, storage upsell</td></tr>
+<tr><td>🌧️ Winter</td><td><span class="badge green">Storage peak</span></td><td>Highest demand; indoor events, holiday parties</td></tr>
+</tbody></table>
+<div class="callout tip"><span class="label">Climate Advantage</span>PNW's 8+ months of rain means exotic car owners <strong>need</strong> indoor storage year-round. Unlike Sun Belt markets, there's <strong>no off-season</strong>.</div></div>
+`},
+
+{id:"vision",num:"14",title:"5-Year Vision & Exit Strategy",content:`
+<div class="sub-section"><h3>Growth Trajectory</h3>
+<table><thead><tr><th>Year</th><th>Revenue</th><th>Members</th><th>Storage</th><th>Milestone</th></tr></thead><tbody>
+<tr><td><strong>1</strong></td><td>$497K</td><td>65</td><td>55%</td><td>Launch, breakeven by M12</td></tr>
+<tr><td><strong>2</strong></td><td>$860K</td><td>80</td><td>90%</td><td>Profitable, waitlist opens</td></tr>
+<tr><td><strong>3</strong></td><td>$1.05M</td><td>90</td><td>95%+</td><td>Brand established</td></tr>
+<tr><td><strong>4</strong></td><td>$1.3M</td><td>100</td><td>Waitlist</td><td>2nd location planning</td></tr>
+<tr><td><strong>5</strong></td><td><strong>$1.8M+</strong></td><td>120+</td><td>2 locations</td><td>Multi-site, franchise exploration</td></tr>
+</tbody></table></div>
+<div class="sub-section"><h3>Exit Options for Investors</h3>
+<table><thead><tr><th>Exit Path</th><th>Timeline</th><th>Valuation</th><th>Est. Value</th></tr></thead><tbody>
+<tr><td><strong>Strategic acquisition</strong></td><td>Year 5–7</td><td>4–6× EBITDA</td><td>$1.5M–$3M</td></tr>
+<tr><td><strong>Hagerty Garage+Social rollup</strong></td><td>Year 4–6</td><td>Premium</td><td>Negotiated</td></tr>
+<tr><td><strong>Franchise / license</strong></td><td>Year 5+</td><td>Recurring royalties</td><td>Ongoing</td></tr>
+<tr><td><strong>Hold & distribute</strong></td><td>Indefinite</td><td>25–32% annual ROI</td><td>Cash flow</td></tr>
+</tbody></table>
+<div class="callout important"><span class="label">Most Likely Paths</span>(1) <strong>Hagerty acquisition</strong> — they're actively expanding Garage+Social and would gain a Seattle SODO location. (2) <strong>Hold & distribute</strong> — with Year 3 ROI of 25–32%, investors collect distributions on a performing asset.</div></div>
+<div class="sub-section"><h3>Location #2 Criteria</h3>
+<table><thead><tr><th>Criterion</th><th>Requirement</th></tr></thead><tbody>
+<tr><td>Market</td><td>50K+ HH earning $200K+ within 20 mi</td></tr>
+<tr><td>Competition</td><td>≤ 2 existing car clubs</td></tr>
+<tr><td>Property</td><td>15K+ SF warehouse, NNN ≤ $20/SF</td></tr>
+<tr><td>Target cities</td><td>Portland · Bellevue · Scottsdale · Austin</td></tr>
+</tbody></table></div>
+`},
+
+{id:"operations",num:"15",title:"Operations — Pre-Launch, Build-Out, Staffing",content:`
+<div class="sub-section"><h3>Pre-Launch Campaign (16 Weeks)</h3>
+<table><thead><tr><th>Week</th><th>Phase</th><th>Actions</th></tr></thead><tbody>
+<tr><td>1–2</td><td>Brand launch</td><td>Domain, handles, landing page + waitlist</td></tr>
+<tr><td>3–6</td><td>Teaser + Waitlist</td><td>Logo reveal, countdown, email drip, social ads ($500/mo)</td></tr>
+<tr><td>7–10</td><td>Content + Deposits</td><td>Build videos, floor plan reveal; founding member deposits ($500 refundable, 25 cap)</td></tr>
+<tr><td>11–14</td><td>Creator + Corporate</td><td>Influencer hard-hat tours; pitch 50 target executives</td></tr>
+<tr><td>15–16</td><td>Final push + Launch</td><td>"Last 5 spots" campaign, grand opening event</td></tr>
+</tbody></table></div>
+<div class="sub-section"><h3>Build-Out Timeline (~20 Weeks)</h3>
+<table><thead><tr><th>Phase</th><th>Weeks</th><th>Activities</th></tr></thead><tbody>
+<tr><td>Phase 0: Pre-construction</td><td>-4 to 0</td><td>Lease, architect, permits filed</td></tr>
+<tr><td>Phase 1: Permits + Demo</td><td>1–6</td><td>SDCI review (6–8 wks), demo interior</td></tr>
+<tr><td>Phase 2: Core Build</td><td>5–12</td><td>Epoxy floors, HVAC, electrical, plumbing</td></tr>
+<tr><td>Phase 3: Systems</td><td>10–14</td><td>FM-200, biometric access, cameras, generator</td></tr>
+<tr><td>Phase 4: Finishing</td><td>13–18</td><td>Lounge, lighting, signage, equipment delivery</td></tr>
+<tr><td>Phase 5: Punch + Launch</td><td>18–20</td><td>Final inspections, soft open, grand opening</td></tr>
+</tbody></table></div>
+<div class="sub-section"><h3>Staffing Plan (5 Launch Hires)</h3>
+<table><thead><tr><th>Role</th><th>Type</th><th>Annual Salary</th><th>Start</th></tr></thead><tbody>
+<tr><td><strong>Club Manager</strong></td><td>FT</td><td>$75K–$90K</td><td>Month -2</td></tr>
+<tr><td><strong>Auto Technician</strong></td><td>FT</td><td>$60K–$75K</td><td>Month 1</td></tr>
+<tr><td><strong>Front Desk / Concierge</strong></td><td>FT</td><td>$48K–$55K</td><td>Month 1</td></tr>
+<tr><td><strong>Detailer</strong></td><td>PT→FT</td><td>$22–$28/hr</td><td>Month 2</td></tr>
+<tr><td><strong>Marketing / Social</strong></td><td>Contract</td><td>$25–$40/hr</td><td>Month -1</td></tr>
+</tbody></table>
+<p>Total Year 1 loaded payroll: <strong>~$27K–$35K/mo</strong></p></div>
+`},
+
+{id:"partnerships",num:"16",title:"Partnerships — Hagerty & EV Charging",content:`
+<div class="sub-section"><h3>Hagerty Agreed-Value Insurance</h3>
+<table><thead><tr><th>Program</th><th>What We Get</th><th>What We Provide</th></tr></thead><tbody>
+<tr><td>Car Club Partner</td><td>Co-branded materials, event support, commissions</td><td>Promote Hagerty to members, co-host events</td></tr>
+<tr><td>Garage Keeper's</td><td>Agreed-value coverage (not market depreciation)</td><td>FM-200, biometric security = lower premiums</td></tr>
+<tr><td>Drivers Club</td><td>Members auto-enroll (roadside, magazine, discounts)</td><td>Increased Hagerty customer base</td></tr>
+<tr><td>Valuations</td><td>Free quarterly on-site appraisals</td><td>Drives insurance policy sales</td></tr>
+</tbody></table></div>
+<div class="sub-section"><h3>EV Charging Infrastructure</h3>
+<table><thead><tr><th>Type</th><th>Qty</th><th>Power</th><th>Use Case</th></tr></thead><tbody>
+<tr><td>Level 2 (240V)</td><td>4 ports</td><td>7–19 kW each</td><td>Overnight member charging</td></tr>
+<tr><td>DC Fast Charger</td><td>1 port</td><td>50–100 kW</td><td>Quick top-ups, high-value amenity</td></tr>
+</tbody></table>
+<div class="grid grid-2" style="margin-top:1rem">
+<div class="card"><div class="card-title">Gross Cost</div><div class="card-value">$93K–$166K</div><div class="card-sub">Hardware + install + electrical</div></div>
+<div class="card"><div class="card-title">Net After Incentives</div><div class="card-value" style="color:#7dcea0">$35K–$65K</div><div class="card-sub">30C credit + Seattle City Light rebates</div></div>
+</div></div>
+`}
+];
+
+// MERGE ALL SECTIONS
+const allSections = [...sections, ...sections2];
+
+// BUILD DOM
+const container = document.getElementById('content');
+const navLinks = document.getElementById('navLinks');
+
+allSections.forEach((s,i) => {
+  // Nav
+  const a = document.createElement('a');
+  a.href = '#' + s.id;
+  a.textContent = s.title.split('—')[0].split('—')[0].trim().substring(0,20);
+  navLinks.appendChild(a);
+
+  // Section
+  const div = document.createElement('div');
+  div.className = 'section';
+  div.id = s.id;
+  div.innerHTML = `
+    <div class="section-header" onclick="toggleSection(this)">
+      <h2><span class="num">${s.num}</span>${s.title}</h2>
+      <span class="icon">▼</span>
+    </div>
+    <div class="section-body">${s.content}</div>
+  `;
+  container.appendChild(div);
+});
+
+function toggleSection(header) {
+  const body = header.nextElementSibling;
+  const isOpen = header.classList.contains('open');
+
+  header.classList.toggle('open');
+  body.classList.toggle('show');
+}
+
+// Expand all on load? No - keep collapsed for interactivity
+// Active nav on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+      const link = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+      if (link) link.classList.add('active');
+    }
+  });
+}, {threshold: 0.3});
+
+document.querySelectorAll('.section').forEach(s => observer.observe(s));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({behavior:'smooth',block:'start'});
+      // Auto-open section
+      const header = target.querySelector('.section-header');
+      if (header && !header.classList.contains('open')) {
+        toggleSection(header);
+      }
+    }
+  });
+});
+
+// Animate bar charts on scroll
+const barObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.bar-fill').forEach(bar => {
+        const w = bar.getAttribute('data-width');
+        if (w) bar.style.width = w + '%';
+      });
+    }
+  });
+}, {threshold: 0.5});
+
+document.querySelectorAll('.bar-chart').forEach(c => barObserver.observe(c));
+</script>
+</body>
+</html>
